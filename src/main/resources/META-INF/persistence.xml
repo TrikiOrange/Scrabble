@@ -6,10 +6,6 @@
 	<persistence-unit name="effPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistence</provider>
 		<non-jta-data-source>java:comp/env/jdbc/rotDataSource</non-jta-data-source>
-		<class>com.epac.om.message.Book</class>
-		<class>com.epac.om.message.PaperType</class>
-		<class>com.epac.eff.model.BookReport</class>
-		<class>com.epac.om.message.ReportLine</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
