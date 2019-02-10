@@ -63,9 +63,22 @@ public class PlayScrabble extends AbstractHandler {
 		return score;
 	}
 
-	public void buildHistogram() {
+	public Map<Integer, Integer> buildHistogram() {
 
 		LogUtils.info("<<<<<<<<<<<<<<<<< Exercise Number 3 : Histogram >>>>>>>>>>>>>>>>>");
+		
+		for (Map.Entry<String, Integer> entry : scores.entrySet()) {
+			int value = entry.getValue();
+
+			// Filling up the histogram
+			if (histogram.isEmpty() || !histogram.containsKey(value)) {
+				histogram.put(value, 1);
+				scoresList.add(value);
+			} else {
+				int newScore = histogram.get(value) + 1;
+				histogram.replace(value, histogram.get(value), newScore);
+			}
+		}
 
 		if (!histogram.isEmpty()) {
 			for (Map.Entry<Integer, Integer> entry : histogram.entrySet()) {
@@ -78,6 +91,8 @@ public class PlayScrabble extends AbstractHandler {
 		}
 
 		LogUtils.info("<<<<<<<<<<<<<<<<< Histogram >>>>>>>>>>>>>>>>>");
+		
+		return histogram;
 
 	}
 
@@ -111,7 +126,7 @@ public class PlayScrabble extends AbstractHandler {
 
 	}
 
-	public void getBestScoreWord() {
+	public String getBestScoreWord() {
 
 		LogUtils.info("<<<<<<<<<<<<<<<<< Exercise Number 2 : Best score word >>>>>>>>>>>>>>>>>");
 
@@ -126,21 +141,15 @@ public class PlayScrabble extends AbstractHandler {
 				bestWord = word;
 				bestScore = value;
 			}
-
-			// Filling up the histogram
-			if (histogram.isEmpty() || !histogram.containsKey(value)) {
-				histogram.put(value, 1);
-				scoresList.add(value);
-			} else {
-				int newScore = histogram.get(value) + 1;
-				histogram.replace(value, histogram.get(value), newScore);
-			}
 		}
+		
+		String message = "Best word is '" + bestWord + "' with score " + bestScore;
 
-		LogUtils.info("Best word is '" + bestWord + "' with score " + bestScore);
+		LogUtils.info(message);
 
 		LogUtils.info("<<<<<<<<<<<<<<<<<<< Best Word >>>>>>>>>>>>>>>>>>>");
 
+		return bestWord;
 	}
 
 	public void getPalmares() {
