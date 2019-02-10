@@ -50,7 +50,7 @@ public class PlayScrabble extends AbstractHandler {
 
 	}
 
-	private int calculateWordScore(String word) {
+	public int calculateWordScore(String word) {
 		int score = 0;
 
 		if (!isWordForbidden(word)) {
@@ -81,7 +81,7 @@ public class PlayScrabble extends AbstractHandler {
 
 	}
 
-	private boolean isWordForbidden(String word) {
+	public boolean isWordForbidden(String word) {
 
 		boolean isForbidden = false;
 
