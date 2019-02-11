@@ -6,14 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
 import com.nexeo.scrabble.config.ConfigurationConstants;
 import com.nexeo.scrabble.exception.ScrabbleException;
 import com.nexeo.scrabble.utils.FileParser;
 import com.nexeo.scrabble.utils.LogUtils;
 
-@Service
 public class PlayScrabble extends AbstractHandler {
 
 	static List<String> dictionary;
@@ -66,7 +63,7 @@ public class PlayScrabble extends AbstractHandler {
 	public Map<Integer, Integer> buildHistogram() {
 
 		LogUtils.info("<<<<<<<<<<<<<<<<< Exercise Number 3 : Histogram >>>>>>>>>>>>>>>>>");
-		
+
 		for (Map.Entry<String, Integer> entry : scores.entrySet()) {
 			int value = entry.getValue();
 
@@ -91,7 +88,7 @@ public class PlayScrabble extends AbstractHandler {
 		}
 
 		LogUtils.info("<<<<<<<<<<<<<<<<< Histogram >>>>>>>>>>>>>>>>>");
-		
+
 		return histogram;
 
 	}
@@ -142,7 +139,7 @@ public class PlayScrabble extends AbstractHandler {
 				bestScore = value;
 			}
 		}
-		
+
 		String message = "Best word is '" + bestWord + "' with score " + bestScore;
 
 		LogUtils.info(message);
