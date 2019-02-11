@@ -5,11 +5,6 @@ import java.util.Map;
 
 public class ConfigurationConstants {
 	
-	public static String DICTIONARY_DIR 					= "com.nexeo.dictionary.dir";
-	public static String PLAYED_WORDS_DIR 					= "com.nexeo.played.words.dir";
-	
-	public static final String EFF_URL 						= "com.epac.pre.om.effUrl";
-	
 	public static Map<String, Integer> distributionPoints	= new HashMap<>();
 	
 	public static void distributePoints() {

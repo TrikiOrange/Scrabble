@@ -7,11 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.nexeo.scrabble.config.ConfigurationConstants;
-import com.nexeo.scrabble.exception.ScrabbleException;
 import com.nexeo.scrabble.utils.FileParser;
 import com.nexeo.scrabble.utils.LogUtils;
 
-public class PlayScrabble extends AbstractHandler {
+public class PlayScrabble {
 
 	static List<String> dictionary;
 	static List<String> playedWords;
@@ -23,14 +22,9 @@ public class PlayScrabble extends AbstractHandler {
 	public void loadGame(String dict, String word) {
 		LogUtils.debug("Uploading the data to play Scrabble");
 
-		try {
 			dictionary = FileParser.readDictionnary(dict);
 			playedWords = FileParser.readPlayedWords(word);
 
-		} catch (ScrabbleException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 	}
 
 	public int calculateHello() {
@@ -115,6 +109,8 @@ public class PlayScrabble extends AbstractHandler {
 	}
 
 	public void calculatePlayingWords() {
+		
+		String wordF = "";
 
 		playedWords.stream().forEach(word -> {
 			int score = calculateWordScore(word);
