@@ -109,8 +109,6 @@ public class PlayScrabble {
 	}
 
 	public void calculatePlayingWords() {
-		
-		String wordF = "";
 
 		playedWords.stream().forEach(word -> {
 			int score = calculateWordScore(word);
